@@ -5,9 +5,16 @@ const App = () => {
     let imgTagReff = useRef(null);
     let  valueTagReff = useRef(null);
 
+    let responseRaff = useRef(null);
 
-    const change = ()=>{
-        pTagReff.current.innerHTML = '<h1>I hate you</h1>';
+
+    const change = async ()=>{
+
+
+        let respons = await fetch("https://jsonplaceholder.typicode.com/todos/1")
+        responseRaff.current =await respons.json()
+        pTagReff.current.innerText = JSON.stringify(responseRaff.current);
+
     }
 
     const change2 = ()=>{
